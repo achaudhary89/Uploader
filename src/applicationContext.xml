@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd ">
+
+	<!-- Initialization for data source -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://43.224.136.105:3306/olm_new" />
+		<property name="username" value="alok" />
+		<property name="password" value="alok" />
+	</bean>
+
+	<!-- Definition for studentJDBCTemplate bean -->
+	<bean id="userJDBCTemplate" class="com.cibil.dao.UserDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="roleJDBCTemplate" class="com.cibil.dao.RoleDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="roleRightsJDBCTemplate" class="com.cibil.dao.RoleRightsDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="menuJDBCTemplate" class="com.cibil.dao.MenuDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+<!-- 	<bean id="excelDAOTemplate" class="com.cibil.dao.ExcelDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	<bean id="excelDAOTemplateCA" class="com.cibil.dao.ExcelDAOCA">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
+<bean id="auditManager" class="com.cibil.manager.AuditManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

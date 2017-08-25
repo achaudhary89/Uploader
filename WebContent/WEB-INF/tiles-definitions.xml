@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- We declare a new template named template-main. This template is used 
+		for displaying the main page. It has 4 attributes. These attributes are placeholder 
+		for our contents For each attribute, we have assigned a corresponding JSP -->
+	<definition name="user-template" template="/WEB-INF/views/layouts/user-layout.jsp">
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header.jsp" />
+		<put-attribute name="menu-content" value="/WEB-INF/views/sections/menu.jsp" />
+		<!-- <put-attribute name="user-left-menu-content" value="/WEB-INF/views/sections/user-left-menu.jsp" 
+			/> <put-attribute name="user-body-Top" value="/WEB-INF/views/sections/user-body-Top.jsp" 
+			/> -->
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+	<definition name="static-template" template="/WEB-INF/views/layouts/static-layout.jsp">
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header.jsp" />
+
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+	<definition name="static-template" template="/WEB-INF/views/layouts/static-layout.jsp">
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header.jsp" />
+
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+
+	<definition name="main-template" template="/WEB-INF/views/layouts/static-layout.jsp">
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/main_header.jsp" />
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/sections/footer.jsp" />
+	</definition>
+
+	<definition name="homePage-layout" template="/WEB-INF/views/layouts/homePage-layout.jsp">
+		<put-attribute name="header-content" value="/WEB-INF/views/sections/header.jsp" />
+		<put-attribute name="menu-content" value="/WEB-INF/views/sections/menu.jsp" />
+		<put-attribute name="body-content" value="" />
+		<put-attribute name="footer-content" value="" />
+	</definition>
+	
+	<definition name="loginPage" extends="main-template">
+		<put-attribute name="body-content" value="/jsp/loginPage.jsp" />
+	</definition>
+
+	<definition name="success" extends="homePage-layout">
+		<put-attribute name="body-content" value="/jsp/success.jsp" />
+	</definition>
+	
+	<definition name="error" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/error.jsp" />
+	</definition>
+
+	<definition name="roleAdded" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/roleAdded.jsp" />
+	</definition>
+
+	<definition name="userMaintenance" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/userMaintenance.jsp" />
+	</definition>
+
+	<definition name="roleMaintenance" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/roleMaintenance.jsp" />
+	</definition>
+
+	<definition name="roleEdit" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/roleEdit.jsp" />
+	</definition>
+
+	<definition name="roleAdd" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/roleAdd.jsp" />
+	</definition>
+
+	<definition name="userAdd" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/userAdd.jsp" />
+	</definition>
+
+	<definition name="userEdit" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/userEdit.jsp" />
+	</definition>
+
+	<definition name="roleWiseAccessRights" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/roleWiseAccessRights.jsp" />
+	</definition>
+	<definition name="logout" extends="user-template">
+		<put-attribute name="body-content" value="/jsp/logout.jsp" />
+	</definition>
+	<definition name="upload" extends="homePage-layout">
+		<put-attribute name="body-content" value="/jsp/upload.jsp" />
+	</definition>
+</tiles-definitions>
+
